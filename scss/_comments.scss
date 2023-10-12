@@ -1,0 +1,222 @@
+.wrapper{
+    position: fixed;
+    display: flex;
+    grid-template-columns: repeat(auto-fill, 265px);
+    justify-content: center;
+    align-items: center;
+    bottom: 3vh;
+    right: 3vw;
+
+    li{
+        border-radius: 5px;
+        padding: 15px 15px;
+
+        &.add_box{
+            cursor: pointer;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+
+            .icon{
+                width: 78px; 
+                height: 78px; 
+                font-size: 40px; 
+                border-radius: 50%;
+                border: 2px dashed #8b8989;
+                background-color: #ffffff;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                
+
+                i{
+                    color: #8b8989;
+                    cursor: pointer;
+                    font-size: 23px;
+                }
+            }
+        }
+    }
+}
+
+.popup_box{
+    position: fixed;
+    top: 50%; left: 50%; z-index: 2;
+    width: 100%; height: 100%;
+    background-color: rgba(0,0,0,0.4);
+    &, .popup{
+        opacity: 0;
+        pointer-events: none;
+        transition: all 0.25s ease;
+        transform: translate(-50%,-50%) scale(0);
+    }
+    &.show,
+    &.show .popup{
+        opacity: 1;
+        pointer-events: auto;
+        transform: translate(-50%,-50%) scale(1);
+    }
+    .popup{
+        position: absolute;
+        top: 50%; left: 50%; z-index: 3;
+        width: 100%; max-width: 400px;
+        display: flex;
+        justify-content: center; align-items: center;
+        transform: translate(-50%,-50%);
+        .content{
+            background-color: #fff;
+            width: 100%; 
+            border-radius: 5px;
+            box-shadow: 0 0 15px rgba(0,0,0,0.1);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+
+            .header{
+                padding: 15px 25px;
+                border-bottom: 1px solid #ccc;
+                display: flex; 
+                align-items: center;
+                justify-content: space-between;
+
+                p{
+                    font-size: 20px; 
+                    font-weight: bold;
+                }
+
+                i{
+                    color: #8b8989; 
+                    cursor: pointer;
+                    font-size: 23px; 
+                    transform: rotate(45deg);
+                }
+            }
+
+            form{
+                margin: 15px 25px 35px;
+                .row{
+                    margin-bottom: 20px;
+                    label, select{
+                        font-size: 18px; display: block;
+                        margin-bottom: 6px;
+                    }
+                    .optionList{
+                        padding: 10px 20px;
+                    }
+                    :where(input, textarea){
+                        height: 50px; width: 100%;
+                        outline: none;
+                        border: 1px solid #999;
+                        font-size: 17px;
+                        padding: 0 15px;
+                        border-radius: 4px;
+                        &:focus{
+                            box-shadow: 2px 2px 5px rgba(0,0,0,0.4);
+                        }
+                    }
+                    textarea{
+                        height: 150px; resize: none; padding: 8px 15px;
+                    }
+                }
+                button{
+                    width: 100%;
+                    height: 50px;
+                    color: #fff; outline: none; border: none;
+                    background-color: #88abff;
+                    font-size: 17px; cursor: pointer;
+                    border-radius: 4px;
+                }
+            }
+        }
+    }
+}
+
+.note{
+    width: 500px;
+    height: 150px;
+    float: left;
+    margin: 30px;
+    display: flex; 
+    flex-direction: column; 
+    justify-content: space-between;
+    background-color: #ffffff;
+    padding: 15px;
+
+    .details{
+        overflow-y: auto;
+
+        &::-webkit-scrollbar,
+        .popup textarea::-webkit-scrollbar{
+            width: 0;
+        }
+
+        &:hover::-webkit-scrollbar,
+        .popup textarea:hover::-webkit-scrollbar{
+            width: 5px; background-color: #ccc;
+            border-radius: 25px;
+        }
+
+        span{
+            display: block;
+            color: #575757; margin-top: 5px;
+            font-size: 16px;
+        }
+    }
+
+    .bottom_content{
+        padding-top: 10px;
+        border-top: 1px solid #ccc;
+        display: flex; 
+        align-items: center;
+        justify-content: space-between;
+
+        .settings{
+            position: relative;
+
+            i{
+                color: #6d6d6d; cursor: pointer; font-size: 15px;
+            }
+
+            .menu{
+                z-index: 1;
+                bottom: 0;
+                right: -5px;
+                padding: 5px 0;
+                background-color: #fff;
+                position: absolute;
+                border-radius: 4px;
+                transform: scale(0);
+                transform-origin: bottom right;
+                box-shadow: 0 0 6px rgba(0,0,0,0.15);
+                transition: transform 0.2s ease;
+                li{
+                    display: flex;
+                    align-items: center;
+                    height: 25px;
+                    font-size: 16px;
+                    padding: 17px 15px;
+                    cursor: pointer;
+                    box-shadow: none;
+                    border-radius: 0;
+                    justify-content: flex-start;
+                    &:hover{
+                        background-color: #000;
+                        color: #fff;
+                        i{
+                            color: #fff;
+                        }
+                    }
+                    i{
+                        padding-right: 8px;
+                    }
+                }
+            }
+            &.show{
+                .menu{
+                    transform: scale(1);
+                }
+            }
+        }
+    }
+}

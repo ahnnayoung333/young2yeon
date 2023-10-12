@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MapleStoryMusic</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script defer src="js/comments.js"></script>
+    <script src="https://kit.fontawesome.com/52d42d70b3.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <header>
+        <ul class="manuBar">
+            <div class="logo">
+                <img src="img/독버섯.png" alt="독버섯 사진">
+            </div>
+
+            <li>
+                <a href="index.html">뮤직 플레이어</a>
+            </li>
+
+            <li>
+                <a href="qa.html">Q&A</a>
+            </li>
+
+            <li class="on">댓글</li>
+        </ul>
+    </header>
+
+    <section>
+        <article class="comments on">
+            <div class="popup_box">
+                <div class="popup">
+                    <div class="content">
+                        <div class="header">
+                            <p></p>
+                            <i class="fa-solid fa-plus"></i>
+                        </div>
+                        <form action="#">
+                            <div class="row title">
+                                <label>노래 제목</label>
+                                <select class="optionList" name="language">
+                                    <option value="null" disabled>= = = = 노래 선텍 = = = =</option>
+                                    <option value="아르카나">아르카나</option>
+                                    <option value="아델의맹세">아델의맹세</option>
+                                    <option value="에인헤랴를 위하여">에인헤랴를 위하여</option>
+                                    <option value="엘리니아">엘리니아</option>
+                                    <option value="세레니티">세레니티</option>
+                                    <option value="수련의숲">수련의숲</option>
+                                    <option value="시간의신전">시간의신전</option>
+                                    <option value="셀라스">셀라스</option>
+                                    <option value="아쿠아리움">아쿠아리움</option>
+                                    <option value="엘리니아">엘리니아</option>
+                                </select>
+                            </div>
+                            <div class="row description">
+                                <label>느낀 점을 써주세요!</label>
+                                <textarea spellcheck="false"></textarea>
+                            </div>
+                            <button></button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        
+            <div class="wrapper">
+                <li class="add_box">
+                    <div class="icon">
+                        <i class="fa-solid fa-pen"></i>
+                    </div>
+                </li>
+            </div>
+        </article>
+    </section>
+</body>
+</html>

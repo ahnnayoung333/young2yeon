@@ -1,0 +1,500 @@
+@charset "UTF-8";
+@import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+ul, ol, li {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: blue;
+}
+
+body {
+  width: 100%;
+  height: 100vh;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-content: space-evenly;
+  overflow: hidden;
+}
+
+header {
+  position: absolute;
+  width: 80vw;
+  height: 10vh;
+  margin-top: 5vh;
+  box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.1), -5px -5px 5px rgba(0, 0, 0, 0.1);
+  z-index: 10;
+  border-radius: 15px;
+}
+header ul {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+header ul li, header ul div {
+  width: 40%;
+  height: 100%;
+  cursor: pointer;
+  font: bold 1.5vw/1 "메이플스토리";
+  color: gold;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+header ul li img, header ul div img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+header ul li a, header ul div a {
+  color: #ffffff;
+}
+
+section {
+  position: absolute;
+  width: 80%;
+  height: 70%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  bottom: 5vh;
+}
+section > article {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+}
+
+body {
+  background: linear-gradient(260deg, #FFE4D6, #FACBEA, #D988B9, #B0578D);
+}
+
+.MusicPlayer {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+.MusicPlayer ul li {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: -8vh;
+  left: 0;
+  z-index: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.MusicPlayer ul li .back {
+  width: 80%;
+  height: 70%;
+  position: relative;
+  top: 0%;
+  left: 0%;
+  background-position: 99999px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  transition: 1s;
+  opacity: 0;
+}
+.MusicPlayer ul li .back::before, .MusicPlayer ul li .back::after {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 0%;
+  left: 0%;
+  width: 100%;
+  height: 100%;
+  background-image: inherit;
+  background-position: bottom;
+  background-repeat: inherit;
+  background-size: inherit;
+  background-color: inherit;
+  z-index: 2;
+  transition: 1s;
+}
+.MusicPlayer ul li .back::before {
+  border-radius: 20px 0px 0px 20px;
+  clip-path: polygon(0 0, 50% 0, 50% 100%, 0 100%);
+}
+.MusicPlayer ul li .back::after {
+  border-radius: 0px 20px 20px 0px;
+  clip-path: polygon(50% 0, 100% 0, 100% 100%, 50% 100%);
+}
+.MusicPlayer ul li.cen .back::before, .MusicPlayer ul li.cen .back::after {
+  background-position: center;
+}
+.MusicPlayer ul li.next .back::before {
+  margin-top: -500px;
+}
+.MusicPlayer ul li.next .back::after {
+  margin-top: 500px;
+}
+.MusicPlayer ul li.back .back::before {
+  margin-top: 500px;
+}
+.MusicPlayer ul li.back .back::after {
+  margin-top: -500px;
+}
+.MusicPlayer ul li .txt {
+  position: absolute;
+  width: 50%;
+  height: 50%;
+  top: 30%;
+  left: 15%;
+  z-index: 5;
+  overflow: hidden;
+}
+.MusicPlayer ul li .txt h2 {
+  font: bold 5vw/1 "메이플스토리";
+  color: #ffffff;
+  position: relative;
+  top: 0;
+  left: 0;
+  transform: translateX(-100%);
+}
+.MusicPlayer ul li .txt p {
+  font: normal 1.5vw/1 "메이플스토리";
+  color: #ffffff;
+  position: relative;
+  top: 5vh;
+  left: 0;
+  transform: translateX(-100%);
+}
+.MusicPlayer ul li.on {
+  z-index: 2;
+}
+.MusicPlayer ul li.on .back {
+  opacity: 1;
+}
+.MusicPlayer ul li.on .back::before, .MusicPlayer ul li.on .back::after {
+  margin-top: 0;
+}
+.MusicPlayer ul li.on .txt {
+  opacity: 1;
+}
+.MusicPlayer ul li.on .txt h2 {
+  transform: translateX(0);
+  transition: 1s 0.2s;
+}
+.MusicPlayer ul li.on .txt p {
+  transform: translateX(0);
+  transition: 1s 0.4s;
+}
+.MusicPlayer ul .musicUi {
+  position: absolute;
+  left: 50%;
+  bottom: 3vh;
+  width: 20vw;
+  margin-left: -10vw;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 5;
+  overflow: hidden;
+}
+.MusicPlayer ul .musicUi .backMusic,
+.MusicPlayer ul .musicUi .playStop,
+.MusicPlayer ul .musicUi .nextMusic {
+  transform: translateY(500%);
+}
+.MusicPlayer ul .musicUi .backMusic i,
+.MusicPlayer ul .musicUi .playStop i,
+.MusicPlayer ul .musicUi .nextMusic i {
+  color: white;
+}
+.MusicPlayer ul .musicUi .playStop {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.MusicPlayer ul .musicUi .playStop i {
+  position: absolute;
+}
+.MusicPlayer ul .musicUi .playStop i:nth-of-type(1) {
+  opacity: 1;
+}
+.MusicPlayer ul .musicUi .playStop i:nth-of-type(2) {
+  opacity: 0;
+}
+.MusicPlayer ul .musicUi .playStop.on i:nth-of-type(1) {
+  opacity: 0;
+}
+.MusicPlayer ul .musicUi .playStop.on i:nth-of-type(2) {
+  opacity: 1;
+}
+.MusicPlayer ul .musicUi.on .backMusic {
+  transform: translateY(0%);
+  transition: 0.5s;
+}
+.MusicPlayer ul .musicUi.on .playStop {
+  transform: translateY(0%);
+  transition: 0.5s 0.2s;
+}
+.MusicPlayer ul .musicUi.on .nextMusic {
+  transform: translateY(0%);
+  transition: 0.5s 0.4s;
+}
+.MusicPlayer ul .musicUi div {
+  cursor: pointer;
+}
+.MusicPlayer ul .musicUi div i {
+  font-size: 3vw;
+}
+.MusicPlayer ul .musicTimeBar {
+  position: absolute;
+  z-index: 5;
+  width: 0%;
+  height: 2%;
+  background-color: rgba(255, 255, 255, 0.5);
+  left: 0;
+  bottom: 0;
+  opacity: 0;
+}
+.MusicPlayer ul .musicTimeBar.on {
+  opacity: 1;
+  animation: mus 10s infinite linear;
+}
+
+@keyframes mus {
+  0% {
+    width: 0%;
+  }
+  100% {
+    width: 100%;
+  }
+}
+.wrapper {
+  position: fixed;
+  display: flex;
+  grid-template-columns: repeat(auto-fill, 265px);
+  justify-content: center;
+  align-items: center;
+  bottom: 3vh;
+  right: 3vw;
+}
+.wrapper li {
+  border-radius: 5px;
+  padding: 15px 15px;
+}
+.wrapper li.add_box {
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.wrapper li.add_box .icon {
+  width: 78px;
+  height: 78px;
+  font-size: 40px;
+  border-radius: 50%;
+  border: 2px dashed #8b8989;
+  background-color: #ffffff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.wrapper li.add_box .icon i {
+  color: #8b8989;
+  cursor: pointer;
+  font-size: 23px;
+}
+
+.popup_box {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  z-index: 2;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+.popup_box, .popup_box .popup {
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.25s ease;
+  transform: translate(-50%, -50%) scale(0);
+}
+.popup_box.show, .popup_box.show .popup {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translate(-50%, -50%) scale(1);
+}
+.popup_box .popup {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  z-index: 3;
+  width: 100%;
+  max-width: 400px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transform: translate(-50%, -50%);
+}
+.popup_box .popup .content {
+  background-color: #fff;
+  width: 100%;
+  border-radius: 5px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.popup_box .popup .content .header {
+  padding: 15px 25px;
+  border-bottom: 1px solid #ccc;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.popup_box .popup .content .header p {
+  font-size: 20px;
+  font-weight: bold;
+}
+.popup_box .popup .content .header i {
+  color: #8b8989;
+  cursor: pointer;
+  font-size: 23px;
+  transform: rotate(45deg);
+}
+.popup_box .popup .content form {
+  margin: 15px 25px 35px;
+}
+.popup_box .popup .content form .row {
+  margin-bottom: 20px;
+}
+.popup_box .popup .content form .row label, .popup_box .popup .content form .row select {
+  font-size: 18px;
+  display: block;
+  margin-bottom: 6px;
+}
+.popup_box .popup .content form .row .optionList {
+  padding: 10px 20px;
+}
+.popup_box .popup .content form .row :where(input, textarea) {
+  height: 50px;
+  width: 100%;
+  outline: none;
+  border: 1px solid #999;
+  font-size: 17px;
+  padding: 0 15px;
+  border-radius: 4px;
+}
+.popup_box .popup .content form .row :where(input, textarea):focus {
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.4);
+}
+.popup_box .popup .content form .row textarea {
+  height: 150px;
+  resize: none;
+  padding: 8px 15px;
+}
+.popup_box .popup .content form button {
+  width: 100%;
+  height: 50px;
+  color: #fff;
+  outline: none;
+  border: none;
+  background-color: #88abff;
+  font-size: 17px;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.note {
+  width: 500px;
+  height: 150px;
+  float: left;
+  margin: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background-color: #ffffff;
+  padding: 15px;
+}
+.note .details {
+  overflow-y: auto;
+}
+.note .details::-webkit-scrollbar,
+.note .details .popup textarea::-webkit-scrollbar {
+  width: 0;
+}
+.note .details:hover::-webkit-scrollbar,
+.note .details .popup textarea:hover::-webkit-scrollbar {
+  width: 5px;
+  background-color: #ccc;
+  border-radius: 25px;
+}
+.note .details span {
+  display: block;
+  color: #575757;
+  margin-top: 5px;
+  font-size: 16px;
+}
+.note .bottom_content {
+  padding-top: 10px;
+  border-top: 1px solid #ccc;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.note .bottom_content .settings {
+  position: relative;
+}
+.note .bottom_content .settings i {
+  color: #6d6d6d;
+  cursor: pointer;
+  font-size: 15px;
+}
+.note .bottom_content .settings .menu {
+  z-index: 1;
+  bottom: 0;
+  right: -5px;
+  padding: 5px 0;
+  background-color: #fff;
+  position: absolute;
+  border-radius: 4px;
+  transform: scale(0);
+  transform-origin: bottom right;
+  box-shadow: 0 0 6px rgba(0, 0, 0, 0.15);
+  transition: transform 0.2s ease;
+}
+.note .bottom_content .settings .menu li {
+  display: flex;
+  align-items: center;
+  height: 25px;
+  font-size: 16px;
+  padding: 17px 15px;
+  cursor: pointer;
+  box-shadow: none;
+  border-radius: 0;
+  justify-content: flex-start;
+}
+.note .bottom_content .settings .menu li:hover {
+  background-color: #000;
+  color: #fff;
+}
+.note .bottom_content .settings .menu li:hover i {
+  color: #fff;
+}
+.note .bottom_content .settings .menu li i {
+  padding-right: 8px;
+}
+.note .bottom_content .settings.show .menu {
+  transform: scale(1);
+}
+
+/*# sourceMappingURL=style.css.map */
